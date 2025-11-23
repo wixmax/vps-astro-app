@@ -1,0 +1,133 @@
+---
+import TestimonialCard from "./TestimonialCard.astro";
+
+const testimonials = [
+  {
+    text: "In capital letters....THIS GAME IS AWESOME...where has it been all my life...i never get tired of playing....if you are thinking of downloading go ahead its the BEST choice😍😘",
+    author: "Zeriana William",
+    role: "January 4, 2025",
+    image: "https://placehold.co/100x100/333/fff?text=ZW",
+    rating: 5,
+  },
+  {
+    text: "I've been using pagedone for a year now and it's made managing my finances so much easier.",
+    author: "Ethan Miller",
+    role: "Product Designer",
+    image: "https://placehold.co/100x100/555/fff?text=EM",
+    rating: 5,
+  },
+  {
+    text: "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
+    author: "Olivia Carter",
+    role: "Design Lead",
+    image: "https://placehold.co/100x100/777/fff?text=OC",
+    rating: 5,
+  },
+  {
+    text: "The best tool for managing my daily tasks. Highly recommended for everyone.",
+    author: "James Wilson",
+    role: "Developer",
+    image: "https://placehold.co/100x100/999/fff?text=JW",
+    rating: 4,
+  },
+];
+---
+
+<section class="py-24 bg-transparent relative">
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 to-transparent pointer-events-none"
+  >
+  </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-black text-white mb-4 uppercase italic"
+      >
+        Testimonial
+      </h2>
+      <p class="text-gray-300 max-w-2xl mx-auto">
+        "Hear from our users who love our game and the seamless experience of installing it directly from Google Play!"
+
+
+      </p>
+    </div>
+
+    <div class="relative max-w-8xl mx-auto">
+      <!-- Slider Container -->
+      <div
+        id="testimonial-slider"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 px-4 scroll-smooth scrollbar-hide"
+        style="scrollbar-width: none; -ms-overflow-style: none;"
+      >
+        {
+          testimonials.map((testimonial) => (
+            <div class="snap-center flex-shrink-0">
+              <TestimonialCard {...testimonial} />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 mt-8">
+        <button
+          id="prev-testimonial"
+          class="w-12 h-12 rounded-full border border-white/10 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+          aria-label="Previous testimonial"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button
+          id="next-testimonial"
+          class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20"
+          aria-label="Next testimonial"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById("testimonial-slider");
+  const prevBtn = document.getElementById("prev-testimonial");
+  const nextBtn = document.getElementById("next-testimonial");
+
+  if (slider && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cardWidth = slider.querySelector("div")?.offsetWidth || 300;
+      slider.scrollBy({ left: -(cardWidth + 24), behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      const cardWidth = slider.querySelector("div")?.offsetWidth || 300;
+      slider.scrollBy({ left: cardWidth + 24, behavior: "smooth" });
+    });
+  }
+</script>
