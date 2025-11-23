@@ -1,0 +1,22 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+<nav class="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="/" class="text-xl font-bold text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary transition flex items-center gap-2">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">GamesMobZone</span>
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden md:flex space-x-6">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Home</a>
+        <a href="/privacy-policy" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Privacy Policy</a>
+        <a href="/terms-and-conditions" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Terms & Conditions</a>
+      </div>
+      <ThemeToggle />
+    </div>
+    <!-- Mobile Menu Button (Optional) -->
+    <div class="md:hidden">
+       <!-- Add mobile menu logic later if needed -->
+    </div>
+  </div>
+</nav>

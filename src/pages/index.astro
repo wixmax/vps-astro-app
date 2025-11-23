@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const games = [
+  {
+    title: "Space Adventure",
+    description: "Explore the universe and discover new planets in this epic space adventure game.",
+    image: "https://placehold.co/600x400/1a202c/ffffff?text=Space+Adventure",
+    link: "https://play.google.com/store/apps"
+  },
+  {
+    title: "Racing Legends",
+    description: "Compete against the best drivers in the world and become a racing legend.",
+    image: "https://placehold.co/600x400/c53030/ffffff?text=Racing+Legends",
+    link: "https://play.google.com/store/apps"
+  },
+  {
+    title: "Puzzle Master",
+    description: "Challenge your brain with hundreds of mind-bending puzzles.",
+    image: "https://placehold.co/600x400/2b6cb0/ffffff?text=Puzzle+Master",
+    link: "https://play.google.com/store/apps"
+  },
+  {
+    title: "Zombie Survival",
+    description: "Survive the zombie apocalypse and build your own shelter.",
+    image: "https://placehold.co/600x400/2f855a/ffffff?text=Zombie+Survival",
+    link: "https://play.google.com/store/apps"
+  },
+  {
+    title: "Fantasy Quest",
+    description: "Embark on a magical journey to save the kingdom from evil forces.",
+    image: "https://placehold.co/600x400/805ad5/ffffff?text=Fantasy+Quest",
+    link: "https://play.google.com/store/apps"
+  },
+  {
+    title: "Sports Hero",
+    description: "Lead your team to victory and become the ultimate sports hero.",
+    image: "https://placehold.co/600x400/d69e2e/ffffff?text=Sports+Hero",
+    link: "https://play.google.com/store/apps"
+  }
+];
+---
+
+<Layout title="GamesMobZone - Download Best Games">
+	<!-- Hero Section -->
+	<section class="relative bg-gradient-to-br from-primary-dark to-purple-900 text-white py-32 overflow-hidden">
+		<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+		<div class="absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent"></div>
+		
+		<div class="container mx-auto px-4 text-center relative z-10">
+			<h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight animate-fade-in-down">
+				Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-secondary">GamesMobZone</span>
+			</h1>
+			<p class="text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+				Discover and download the most exciting games for your Android device. Level up your gaming experience today.
+			</p>
+			<div class="flex justify-center gap-4">
+				<a href="#games" class="bg-secondary hover:bg-secondary-dark text-white font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-secondary/50 ring-2 ring-secondary/50 ring-offset-2 ring-offset-transparent">
+					Browse Games
+				</a>
+				<a href="/privacy-policy" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-10 rounded-full transition-all border border-white/20 hover:border-white/40">
+					Learn More
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Games Section -->
+	<section id="games" class="py-20 bg-gray-50 dark:bg-dark-bg transition-colors duration-300">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Games</h2>
+				<div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+				<p class="mt-4 text-gray-600 dark:text-gray-400">Hand-picked selection of the best games available now.</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{games.map((game) => (
+					<Card
+						title={game.title}
+						description={game.description}
+						image={game.image}
+						link={game.link}
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.animate-fade-in-down {
+		animation: fadeInDown 1s ease-out;
+	}
+	@keyframes fadeInDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

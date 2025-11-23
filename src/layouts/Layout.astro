@@ -1,0 +1,37 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Download the best games on Google Play" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script is:inline>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
+	</head>
+	<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-dark-text flex flex-col min-h-screen transition-colors duration-300">
+		<Navbar />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
