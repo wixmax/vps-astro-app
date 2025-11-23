@@ -4,82 +4,80 @@ import Card from '../components/Card.astro';
 
 const games = [
   {
-    title: "Space Adventure",
-    description: "Explore the universe and discover new planets in this epic space adventure game.",
-    image: "https://placehold.co/600x400/1a202c/ffffff?text=Space+Adventure",
-    link: "https://play.google.com/store/apps"
+    title: "Cyber Warrior",
+    image: "https://placehold.co/600x400/D9008F/ffffff?text=Cyber+Warrior",
+    link: "#"
   },
   {
-    title: "Racing Legends",
-    description: "Compete against the best drivers in the world and become a racing legend.",
-    image: "https://placehold.co/600x400/c53030/ffffff?text=Racing+Legends",
-    link: "https://play.google.com/store/apps"
+    title: "Neon Racer",
+    image: "https://placehold.co/600x400/6C00A2/ffffff?text=Neon+Racer",
+    link: "#"
   },
   {
-    title: "Puzzle Master",
-    description: "Challenge your brain with hundreds of mind-bending puzzles.",
-    image: "https://placehold.co/600x400/2b6cb0/ffffff?text=Puzzle+Master",
-    link: "https://play.google.com/store/apps"
+    title: "Space Odyssey",
+    image: "https://placehold.co/600x400/00F0FF/000000?text=Space+Odyssey",
+    link: "#"
   },
   {
-    title: "Zombie Survival",
-    description: "Survive the zombie apocalypse and build your own shelter.",
-    image: "https://placehold.co/600x400/2f855a/ffffff?text=Zombie+Survival",
-    link: "https://play.google.com/store/apps"
-  },
-  {
-    title: "Fantasy Quest",
-    description: "Embark on a magical journey to save the kingdom from evil forces.",
-    image: "https://placehold.co/600x400/805ad5/ffffff?text=Fantasy+Quest",
-    link: "https://play.google.com/store/apps"
-  },
-  {
-    title: "Sports Hero",
-    description: "Lead your team to victory and become the ultimate sports hero.",
-    image: "https://placehold.co/600x400/d69e2e/ffffff?text=Sports+Hero",
-    link: "https://play.google.com/store/apps"
+    title: "Mech Battle",
+    image: "https://placehold.co/600x400/1A0B2E/ffffff?text=Mech+Battle",
+    link: "#"
   }
+];
+
+const popularGames = [
+    { title: "Drift King", image: "https://placehold.co/600x400/c53030/ffffff?text=Drift+King", link: "#" },
+    { title: "Sniper Elite", image: "https://placehold.co/600x400/2b6cb0/ffffff?text=Sniper+Elite", link: "#" },
+    { title: "Desert Storm", image: "https://placehold.co/600x400/d69e2e/ffffff?text=Desert+Storm", link: "#" },
+    { title: "Urban Ops", image: "https://placehold.co/600x400/2f855a/ffffff?text=Urban+Ops", link: "#" },
 ];
 ---
 
-<Layout title="GamesMobZone - Download Best Games">
+<Layout title="G-Mame - Level Up Your Game">
 	<!-- Hero Section -->
-	<section class="relative bg-gradient-to-br from-primary-dark to-purple-900 text-white py-32 overflow-hidden">
-		<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-		<div class="absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent"></div>
+	<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Image/Gradient -->
+		<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-dark-bg via-dark-bg/90 to-transparent"></div>
 		
-		<div class="container mx-auto px-4 text-center relative z-10">
-			<h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight animate-fade-in-down">
-				Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-secondary">GamesMobZone</span>
-			</h1>
-			<p class="text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-				Discover and download the most exciting games for your Android device. Level up your gaming experience today.
-			</p>
-			<div class="flex justify-center gap-4">
-				<a href="#games" class="bg-secondary hover:bg-secondary-dark text-white font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-secondary/50 ring-2 ring-secondary/50 ring-offset-2 ring-offset-transparent">
-					Browse Games
-				</a>
-				<a href="/privacy-policy" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-10 rounded-full transition-all border border-white/20 hover:border-white/40">
-					Learn More
-				</a>
-			</div>
+		<div class="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight italic uppercase tracking-tighter">
+                    It's time to <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">up your game!</span><br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Get Overworld</span> <span class="text-white">Today</span>
+                </h1>
+                
+                <div class="flex flex-wrap gap-4 mt-10">
+                    <a href="#games" class="group relative px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-sm font-bold uppercase tracking-wider text-white overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(217,0,143,0.5)]">
+                        <span class="relative z-10">Play Now</span>
+                        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    </a>
+                    <a href="#" class="px-8 py-3 border border-white/30 rounded-sm font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-all flex items-center gap-2">
+                        Watch Video <span class="text-primary">▶</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Hero Image/Graphic (Optional, could be a character) -->
+            <div class="hidden md:block relative">
+                 <!-- Placeholder for a hero character image if needed -->
+            </div>
 		</div>
 	</section>
 
-	<!-- Games Section -->
-	<section id="games" class="py-20 bg-gray-50 dark:bg-dark-bg transition-colors duration-300">
-		<div class="container mx-auto px-4">
+	<!-- Game Collection Section -->
+	<section id="games" class="py-24 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 to-transparent pointer-events-none"></div>
+		<div class="container mx-auto px-4 relative z-10">
 			<div class="text-center mb-16">
-				<h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Games</h2>
-				<div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-				<p class="mt-4 text-gray-600 dark:text-gray-400">Hand-picked selection of the best games available now.</p>
+				<h2 class="text-4xl md:text-5xl font-black text-white mb-4 uppercase italic">Game Collection</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
 			</div>
 			
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				{games.map((game) => (
 					<Card
 						title={game.title}
-						description={game.description}
 						image={game.image}
 						link={game.link}
 					/>
@@ -87,20 +85,42 @@ const games = [
 			</div>
 		</div>
 	</section>
-</Layout>
 
-<style>
-	.animate-fade-in-down {
-		animation: fadeInDown 1s ease-out;
-	}
-	@keyframes fadeInDown {
-		0% {
-			opacity: 0;
-			transform: translateY(-20px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-</style>
+    <!-- Popular Games Section (Matching reference right side) -->
+    <section class="py-24 bg-dark-bg/50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-12">
+                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase italic">Popular Games</h2>
+                 <a href="#" class="text-primary hover:text-white transition uppercase text-sm font-bold">View All</a>
+            </div>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {popularGames.map((game) => (
+                     <div class="group relative rounded-3xl overflow-hidden aspect-video border border-white/5 hover:border-accent/50 transition-all">
+                        <img src={game.image} alt={game.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">{game.title}</h3>
+                            <div class="flex text-yellow-400 text-sm mt-1">★★★★★</div>
+                        </div>
+                     </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Banner -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="rounded-3xl bg-gradient-to-r from-secondary to-primary p-12 relative overflow-hidden flex items-center justify-between">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-black text-white uppercase italic leading-tight">Connect with us<br/>for gaming update</h2>
+                </div>
+                <div class="relative z-10">
+                     <a href="#" class="px-8 py-3 bg-white text-secondary font-black uppercase rounded-sm hover:bg-gray-100 transition-colors shadow-lg">Connect Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

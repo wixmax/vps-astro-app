@@ -1,22 +1,27 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 ---
-<nav class="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">
-  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <a href="/" class="text-xl font-bold text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary transition flex items-center gap-2">
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">GamesMobZone</span>
+<nav class="bg-transparent absolute top-0 w-full z-50 border-b border-white/10 backdrop-blur-sm">
+  <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+    <a href="/" class="text-2xl font-black text-white tracking-wider uppercase flex items-center gap-2">
+      G-Mame
     </a>
-    <div class="flex items-center gap-6">
-      <div class="hidden md:flex space-x-6">
-        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Home</a>
-        <a href="/privacy-policy" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Privacy Policy</a>
-        <a href="/terms-and-conditions" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition font-medium">Terms & Conditions</a>
+    <div class="flex items-center gap-8">
+      <div class="hidden md:flex space-x-8">
+        <a href="/" class="text-sm font-bold text-primary border-b-2 border-primary uppercase tracking-wide">Home</a>
+        <a href="#about" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">About us</a>
+        <a href="#match" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Match</a>
+        <a href="#tournament" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Tournament</a>
+        <a href="/privacy-policy" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Pages</a>
+        <a href="/terms-and-conditions" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Contact us</a>
       </div>
-      <ThemeToggle />
-    </div>
-    <!-- Mobile Menu Button (Optional) -->
-    <div class="md:hidden">
-       <!-- Add mobile menu logic later if needed -->
+      <a href="#" class="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-bold text-white transition-all duration-200 bg-gradient-to-r from-primary to-secondary rounded-sm hover:from-primary-dark hover:to-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary uppercase tracking-wider">
+        Sign up <span class="ml-2">→</span>
+      </a>
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
     </div>
   </div>
 </nav>
