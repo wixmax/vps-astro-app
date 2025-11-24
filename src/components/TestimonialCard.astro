@@ -2,12 +2,12 @@
 interface Props {
   text: string;
   author: string;
-  role: string;
+  date: string;
   image: string;
   rating: number;
 }
 
-const { text, author, role, image, rating } = Astro.props;
+const { text, author, date, image, rating } = Astro.props;
 ---
 
 <div
@@ -26,7 +26,7 @@ const { text, author, role, image, rating } = Astro.props;
       />
       <div>
         <h4 class="text-white font-bold text-sm">{author}</h4>
-        <p class="text-accent text-xs font-medium">{role}</p>
+        <p class="text-gray-500 text-xs font-medium">{date}</p>
       </div>
     </div>
 

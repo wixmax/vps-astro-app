@@ -1,21 +1,86 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
+import ThemeToggle from "./ThemeToggle.astro";
 ---
-<nav class="bg-transparent absolute top-0 w-full z-50 border-b border-white/10 backdrop-blur-sm">
+
+<nav
+  class="bg-transparent absolute top-0 w-full z-50 border-b border-white/10 backdrop-blur-sm"
+>
   <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-    <a href="/" class="text-2xl font-black text-white tracking-wider uppercase flex items-center gap-2">
-      G-Mame
+    <a
+      href="/"
+      class="text-2xl font-black text-white tracking-wider uppercase flex items-center gap-2"
+    >
+      <img src="/images/logo-web.png" alt="G-Mame Logo" class="h-12 w-auto" />
+      <span>games mobile zone</span>
     </a>
-    <div class="flex items-center gap-8">
-      <div class="hidden md:flex space-x-8">
-        <a href="/" class="text-sm font-bold text-primary border-b-2 border-primary uppercase tracking-wide">Home</a>
-        <a href="/privacy-policy" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Privacy Policy</a>
-        <a href="/terms-and-conditions" class="text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide">Terms and Conditions</a>
-      </div>
-      <!-- Mobile Menu Button -->
-      <button class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
+
+    <div class="hidden md:flex space-x-8" id="main-nav-links">
+      <a
+        href="/"
+        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
+        >Home</a
+      >
+      <a
+        href="/privacy-policy"
+        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
+        >Privacy Policy</a
+      >
+      <a
+        href="/terms-and-conditions"
+        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
+        >Terms and Conditions</a
+      >
     </div>
+
+    <!-- <div class="flex items-center gap-4">
+      <ThemeToggle />
+
+      <button class="md:hidden text-white focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path></svg
+        >
+      </button>
+    </div> -->
   </div>
 </nav>
+
+<script is:inline>
+  // عند تحميل الصفحة، نطبق التنسيق على الرابط النشط
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".nav-link");
+    const currentPath = window.location.pathname.replace(/\/$/, ""); // إزالة الشرطة المائلة النهائية إذا وجدت
+
+    links.forEach((link) => {
+      const linkPath = link.getAttribute("href").replace(/\/$/, "");
+
+      // لإزالة التمييز السابق (مهم جداً في حالة الروابط المتعددة)
+      link.classList.remove(
+        "text-primary",
+        "border-b-2",
+        "border-primary",
+        "text-gray-300"
+      );
+      link.classList.add("text-gray-300"); // تعيين اللون الافتراضي
+
+      // منطق التمييز:
+      if (currentPath === linkPath) {
+        // إذا تطابق المسار، طبق التنسيق النشط
+        link.classList.remove("text-gray-300");
+        link.classList.add("text-primary", "border-b-2", "border-primary");
+      } else if (linkPath === "/" && currentPath === "") {
+        // معالجة خاصة لصفحة Home (المسار / يساوي مسار فارغ)
+        link.classList.remove("text-gray-300");
+        link.classList.add("text-primary", "border-b-2", "border-primary");
+      }
+    });
+  });
+</script>

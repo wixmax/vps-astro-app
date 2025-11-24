@@ -3,138 +3,230 @@ import TestimonialCard from "./TestimonialCard.astro";
 
 const testimonials = [
   {
-    text: "In capital letters....THIS GAME IS AWESOME...where has it been all my life...i never get tired of playing....if you are thinking of downloading go ahead its the BEST choice😍😘",
+    text: "In capital letters....THIS GAME IS AWESOME...where has it been all my life...",
     author: "Zeriana William",
-    role: "January 4, 2025",
+    date: "January 4, 2025",
     image: "https://placehold.co/100x100/333/fff?text=ZW",
     rating: 5,
   },
   {
-    text: "I've been using pagedone for a year now and it's made managing my finances so much easier.",
-    author: "Ethan Miller",
-    role: "Product Designer",
-    image: "https://placehold.co/100x100/555/fff?text=EM",
+    text: "It's a very good game I love it",
+    author: "Enerst Yiadom Boakye",
+    date: "October 12, 2025",
+    image: "https://placehold.co/100x100/555/fff?text=EB",
     rating: 5,
   },
   {
-    text: "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
-    author: "Olivia Carter",
-    role: "Design Lead",
-    image: "https://placehold.co/100x100/777/fff?text=OC",
+    text: "it's very claim to play I like it 🤘🤘🤘👋👋",
+    author: "Thandolwethu Caleni",
+    date: "October 8, 2025",
+    image: "https://placehold.co/100x100/777/fff?text=TC",
     rating: 5,
   },
   {
-    text: "The best tool for managing my daily tasks. Highly recommended for everyone.",
-    author: "James Wilson",
-    role: "Developer",
-    image: "https://placehold.co/100x100/999/fff?text=JW",
+    text: "I enjoy playing with the game",
+    author: "jude zirta",
+    date: "September 11, 2025",
+    image: "https://placehold.co/100x100/999/fff?text=JZ",
     rating: 4,
   },
   {
-    text: "The best tool for managing my daily tasks. Highly recommended for everyone.",
-    author: "James Wilson",
-    role: "Developer",
-    image: "https://placehold.co/100x100/999/fff?text=JW",
-    rating: 4,
+    text: "This game is very fun and relaxing 😌😎",
+    author: "Hamdha Azran",
+    date: "July 25, 2025",
+    image: "https://placehold.co/100x100/222/fff?text=HA",
+    rating: 5,
   },
 ];
 ---
 
 <section class="py-24 bg-transparent relative">
-  <div
-    class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 to-transparent pointer-events-none"
-  >
-  </div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/10 to-transparent pointer-events-none"></div>
+  
   <div class="container mx-auto px-4 relative z-10">
     <div class="text-center mb-16">
-      <h2
-        class="text-4xl md:text-5xl font-black text-white mb-4 uppercase italic"
-      >
-        Testimonial
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-4 uppercase italic">
+        Ratings and reviews
       </h2>
-      <p class="text-gray-300 max-w-2xl mx-auto">
-        "Hear from our users who love our game and the seamless experience of installing it directly from Google Play!"
-
-
-      </p>
     </div>
 
-    <div class="relative max-w-8xl mx-auto">
-      <!-- Slider Container -->
+    <div class="relative max-w-full mx-auto">
+      
       <div
         id="testimonial-slider"
-        class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 px-4 scroll-smooth scrollbar-hide"
+        class="flex gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-12 px-4 scroll-smooth scrollbar-hide cursor-grab active:cursor-grabbing select-none items-center opacity-0 transition-opacity duration-500"
         style="scrollbar-width: none; -ms-overflow-style: none;"
       >
+        <div class="shrink-0 w-[5vw] md:w-[30%]"></div>
+
         {
-          testimonials.map((testimonial) => (
-            <div class="snap-center flex-shrink-0">
-              <TestimonialCard {...testimonial} />
+          testimonials.map((testimonial, index) => (
+            <div 
+              class="flex-shrink-0 testimonial-wrapper transition-all duration-500 ease-out opacity-40 scale-90 blur-[1px]" 
+              data-index={index}
+            >
+              <div class="pointer-events-none">
+                 <TestimonialCard {...testimonial} />
+              </div>
             </div>
           ))
         }
+
+        <div class="shrink-0 w-[5vw] md:w-[30%]"></div>
       </div>
 
-      <!-- Navigation Buttons -->
-      <div class="flex justify-center gap-4 mt-8">
-        <button
-          id="prev-testimonial"
-          class="w-12 h-12 rounded-full border border-white/10 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
-          aria-label="Previous testimonial"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-
-        <button
-          id="next-testimonial"
-          class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20"
-          aria-label="Next testimonial"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M14 5l7 7-7 7"></path>
-          </svg>
-        </button>
+      <div class="flex justify-center -mt-4">
+        <div class="flex items-center gap-3 bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 shadow-2xl">
+          {testimonials.map((_, index) => (
+            <button
+              aria-label={`Go to slide ${index + 1}`}
+              class="dot-btn h-2 rounded-full transition-all duration-300 w-2 bg-white/30 hover:bg-white/60"
+              data-index={index}
+            />
+          ))}
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<script>
-  const slider = document.getElementById("testimonial-slider");
-  const prevBtn = document.getElementById("prev-testimonial");
-  const nextBtn = document.getElementById("next-testimonial");
+<style>
+  .testimonial-wrapper.active-card {
+    opacity: 1 !important;
+    transform: scale(1.0) !important;
+    filter: blur(0) !important;
+    z-index: 10;
+  }
+  
+  .dot-btn.active-dot {
+    width: 2rem;
+    background-color: theme('colors.primary.DEFAULT');
+    box-shadow: 0 0 15px theme('colors.primary.DEFAULT');
+  }
+</style>
 
-  if (slider && prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      const cardWidth = slider.querySelector("div")?.offsetWidth || 300;
-      slider.scrollBy({ left: -(cardWidth + 24), behavior: "smooth" });
+<script>
+  const slider = document.getElementById("testimonial-slider") as HTMLElement;
+  const dots = document.querySelectorAll(".dot-btn") as NodeListOf<HTMLElement>;
+  const wrappers = document.querySelectorAll(".testimonial-wrapper") as NodeListOf<HTMLElement>;
+
+  if (slider) {
+    // دالة لتمركز أي بطاقة بناءً على الـ index
+    const scrollToIndex = (index: number, behavior: ScrollBehavior | 'instant' | 'smooth' | 'auto' = 'smooth') => {
+    const targetWrapper = wrappers[index];
+    if (!targetWrapper) return;
+
+    const sliderWidth = slider.clientWidth;
+    const wrapperWidth = targetWrapper.clientWidth;
+    const targetLeft = targetWrapper.offsetLeft;
+
+    const scrollPos = targetLeft - (sliderWidth / 2) + (wrapperWidth / 2);
+
+    slider.scrollTo({
+        left: scrollPos,
+        // TypeScript يقبل الآن 'behavior' كنوع صحيح
+        behavior: behavior
+    });
+};
+
+    // ----------------------------------------------------
+    // 1. منطق البدء من المنتصف (Start at Middle Logic)
+    // ----------------------------------------------------
+    const initSlider = () => {
+        // حساب الفهرس الأوسط (مثلاً لو 5 بطاقات، الناتج 2)
+        const middleIndex = Math.floor(wrappers.length / 2);
+        
+        // الانتقال فوراً بدون انيميشن عند التحميل
+        scrollToIndex(middleIndex, 'instant');
+
+        // إظهار السليدر بعد ضبط الموقع لمنع الوميض (Flicker)
+        requestAnimationFrame(() => {
+            slider.classList.remove('opacity-0');
+            updateActiveState();
+        });
+    };
+
+    // تنفيذ البدء عند تحميل الصفحة بالكامل لضمان صحة القياسات
+    window.addEventListener('load', initSlider);
+
+
+    // ----------------------------------------------------
+    // 2. منطق السحب (Drag)
+    // ----------------------------------------------------
+    let isDown = false;
+    let startX : number;
+    let scrollLeft : number;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.style.scrollSnapType = 'none'; 
+      slider.style.cursor = 'grabbing';
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
     });
 
-    nextBtn.addEventListener("click", () => {
-      const cardWidth = slider.querySelector("div")?.offsetWidth || 300;
-      slider.scrollBy({ left: cardWidth + 24, behavior: "smooth" });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.style.cursor = 'grab';
+      slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.style.cursor = 'grab';
+      slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // ----------------------------------------------------
+    // 3. منطق التحديث (Active State)
+    // ----------------------------------------------------
+    const updateActiveState = () => {
+      const sliderRect = slider.getBoundingClientRect();
+      const sliderCenter = sliderRect.left + sliderRect.width / 2;
+      let closestIndex = 0;
+      let minDistance = Number.MAX_VALUE;
+
+      wrappers.forEach((wrapper, index) => {
+        const rect = wrapper.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        const distance = Math.abs(sliderCenter - center);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      wrappers.forEach((wrapper, i) => {
+        if (i === closestIndex) wrapper.classList.add('active-card');
+        else wrapper.classList.remove('active-card');
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === closestIndex) dot.classList.add('active-dot');
+        else dot.classList.remove('active-dot');
+      });
+    };
+
+    slider.addEventListener('scroll', () => window.requestAnimationFrame(updateActiveState));
+
+    // ----------------------------------------------------
+    // 4. النقر على النقاط
+    // ----------------------------------------------------
+    dots.forEach((dot) => {
+      dot.addEventListener("click", (e) => {
+        const index = parseInt((e.target as HTMLElement).dataset.index || "0");
+        scrollToIndex(index, 'smooth');
+      });
     });
   }
 </script>
