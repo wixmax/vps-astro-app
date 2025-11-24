@@ -3,41 +3,35 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <nav
-  class="bg-transparent absolute top-0 w-full z-50 border-b border-white/10 backdrop-blur-sm"
+  class="bg-app-bg/80 fixed w-full z-50 top-0 start-0 border-b border-primary/20 backdrop-blur-md"
 >
-  <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+  <div
+    class="container mx-auto px-4 py-4 flex justify-between items-center relative"
+  >
     <a
       href="/"
-      class="text-2xl font-black text-white tracking-wider uppercase flex items-center gap-2"
+      class="flex items-center space-x-3 rtl:space-x-reverse z-20 order-1"
     >
-      <img src="/images/logo-web.png" alt="G-Mame Logo" class="h-12 w-auto" />
-      <span>games mobile zone</span>
+      <img
+        src="/images/logo-web.png"
+        alt="G-Mame Logo"
+        class="h-10 md:h-12 w-auto"
+      />
+      <span
+        class="self-center text-xl md:text-2xl text-app-text font-black tracking-wider uppercase"
+        >games mobile zone</span
+      >
     </a>
 
-    <div class="hidden md:flex space-x-8" id="main-nav-links">
-      <a
-        href="/"
-        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
-        >Home</a
-      >
-      <a
-        href="/privacy-policy"
-        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
-        >Privacy Policy</a
-      >
-      <a
-        href="/terms-and-conditions"
-        class="nav-link text-sm font-bold text-gray-300 hover:text-white transition uppercase tracking-wide"
-        >Terms and Conditions</a
-      >
-    </div>
+    <div class="flex items-center gap-4 z-20 order-3">
+      <!-- <ThemeToggle /> -->
 
-    <!-- <div class="flex items-center gap-4">
-      <ThemeToggle />
-
-      <button class="md:hidden text-white focus:outline-none">
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden text-app-text focus:outline-none"
+      >
         <svg
-          class="w-6 h-6"
+          class="w-7 h-7"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -49,37 +43,78 @@ import ThemeToggle from "./ThemeToggle.astro";
             d="M4 6h16M4 12h16M4 18h16"></path></svg
         >
       </button>
-    </div> -->
+    </div>
+
+    <div
+      id="main-nav-links"
+      class="hidden md:flex md:w-auto w-full
+absolute md:relative top-full left-0 md:left-auto z-10 md:order-2 "
+    >
+      <div class="w-full px-4 py-2">
+        <ul class="flex flex-col md:flex-row md:space-x-8 md:p-0">
+          <li>
+            <a
+              href="/"
+              class="nav-link block py-2 text-sm font-bold text-app-text hover:text-primary transition uppercase tracking-wide"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/privacy-policy"
+              class="nav-link block py-2 text-sm font-bold text-app-text hover:text-primary transition uppercase tracking-wide"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a
+              href="/terms-and-conditions"
+              class="nav-link block py-2 text-sm font-bold text-app-text hover:text-primary transition uppercase tracking-wide"
+              >Terms and Conditions</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>
 
 <script is:inline>
-  // عند تحميل الصفحة، نطبق التنسيق على الرابط النشط
+  // ... (منطق JavaScript لم يتم تغييره وهو صحيح)
   document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("mobile-menu-toggle");
+    const menuLinks = document.getElementById("main-nav-links");
+
+    
+
+    if (menuButton && menuLinks) {
+      menuButton.addEventListener("click", () => {
+        menuLinks.classList.toggle("hidden");
+      });
+    }
+
     const links = document.querySelectorAll(".nav-link");
-    const currentPath = window.location.pathname.replace(/\/$/, ""); // إزالة الشرطة المائلة النهائية إذا وجدت
+    const currentPath = window.location.pathname.replace(/\/$/, "");
 
     links.forEach((link) => {
-      const linkPath = link.getAttribute("href").replace(/\/$/, "");
+      const linkPath = link.getAttribute("href")?.replace(/\/$/, "");
 
-      // لإزالة التمييز السابق (مهم جداً في حالة الروابط المتعددة)
       link.classList.remove(
         "text-primary",
         "border-b-2",
         "border-primary",
-        "text-gray-300"
+        "text-app-text"
       );
-      link.classList.add("text-gray-300"); // تعيين اللون الافتراضي
+      link.classList.add("text-app-text");
 
-      // منطق التمييز:
-      if (currentPath === linkPath) {
-        // إذا تطابق المسار، طبق التنسيق النشط
-        link.classList.remove("text-gray-300");
+      if (
+        currentPath === linkPath ||
+        (linkPath === "/" && currentPath === "")
+      ) {
+        link.classList.remove("text-app-text");
         link.classList.add("text-primary", "border-b-2", "border-primary");
-      } else if (linkPath === "/" && currentPath === "") {
-        // معالجة خاصة لصفحة Home (المسار / يساوي مسار فارغ)
-        link.classList.remove("text-gray-300");
-        link.classList.add("text-primary", "border-b-2", "border-primary");
+      } else {
+        link.classList.add("text-app-text", "hover:text-primary");
       }
     });
   });

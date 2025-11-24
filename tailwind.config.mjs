@@ -23,6 +23,10 @@ export default {
 					muted: '#94a3b8',
 				}
 			},
+			boxShadow: { // 💡 أضف هذا الجزء
+                'primary-glow': '0 0 15px rgba(217, 0, 143, 0.6)', // لون الـ primary مع شفافية
+                'accent-glow': '0 0 15px rgba(0, 240, 255, 0.6)', // لون الـ accent مع شفافية (يمكنك استخدامها في أماكن أخرى)
+            },
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				display: ['Orbitron', 'sans-serif'], // Assuming a sci-fi/gaming font might be good, but sticking to sans for now if not imported
